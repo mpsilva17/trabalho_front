@@ -1,5 +1,6 @@
 /* GLOBAL */
 .green-app{background-color: rgb(169,212,17) !important;}
+[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after { background-color: rgb(169,212,17);border: 2px solid rgb(169,212,17);}
 
 /* NAV */
 nav .logo {margin: 8px 15px;}

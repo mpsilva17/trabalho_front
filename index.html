@@ -59,11 +59,129 @@
 				<a href="mobile.html">Relatório</a>
 			</li>
 		</ul>
+
+		<main>
+			<div class="container">
+				<div class="row">
+					<form class="col s12" action="#">
+						<div class="row">
+							<div class="input-field col s6">
+								<select id="motivacao">
+									<option value="motivacaoOpt" disabled selected>Motivação</option>
+									<option value="perderPesoOpt">Perder peso</option>
+									<option value="dietaEsportivaOpt">Dieta esportiva</option>
+									<option value="restricaoAlimentarOpt">Restrição alimentar</option>
+								</select>
+								<label for="motivacao">Motivação *</label>
+							</div>
+							<div class="input-field col s6">
+								<input placeholder="Peso(Kg)" id="peso" type="text" class="validate">
+          						<label for="peso">Peso *</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<select id="restricao">
+									<option value="restricaoOpt" disabled selected>Restrição</option>
+									<option value="alergiaLactoseOpt">Alergia lactose</option>
+									<option value="alergiaGlutenOpt">Alergia glúten</option>
+									<option value="restricaoAcucarOpt">Restrição açúcar</option>
+									<option value="restricaoSal">Restrição sal</option>
+								</select>
+								<label for="restricao">Restrição *</label>
+							</div>
+							<div class="input-field col s6">
+								<input placeholder="Altura(cm)" id="altura" type="text" class="validate">
+          						<label for="altura">Altura *</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<p class="col s6">
+									<label for="masculino">
+										<input id="masculino" name="sexo" type="radio" checked />
+										<span>Masculino</span>
+									</label>
+								</p>
+								<p class="col s6">
+									<label for="feminino">
+										<input id="feminino" name="sexo" type="radio" />
+										<span>Feminino</span>
+									</label>
+								</p>
+							</div>
+							<div class="input-field col s6">
+								<input placeholder="Perímetro cintura" id="perimetroCintura" type="text">
+          						<label for="perimetroCintura">Perímetro cintura</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+  								<input type="text" class="datepicker validate">
+          						<label for="dataNasc">Data de nascimento</label>
+							</div>
+							<div class="input-field col s6">
+								<input placeholder="Perímetro quadril" id="perimetroQuadril" type="text">
+          						<label for="perimetroQuadril">Perímetro quadril</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								<p class="col s6">
+									<label for="caminhada">
+									  	<input id="caminhada" type="checkbox" class="filled-in" checked="checked"/>
+									  	<span>Caminhada</span>
+									</label>
+								</p>
+								<p class="col s6">
+									<label for="natacao">
+									  	<input id="natacao" type="checkbox" class="filled-in"/>
+									  	<span>Natação</span>
+									</label>
+								</p>
+								<p class="col s6">
+									<label for="corrida">
+									  	<input id="corrida" type="checkbox" class="filled-in"/>
+									  	<span>Corrida</span>
+									</label>
+								</p>
+								<p class="col s6">
+									<label for="futebol">
+									  	<input id="futebol" type="checkbox" class="filled-in"/>
+									  	<span>Futebol</span>
+									</label>
+								</p>
+								<p class="col s6">
+									<label for="academia">
+									  	<input id="academia" type="checkbox" class="filled-in"/>
+									  	<span>Academia</span>
+									</label>
+								</p>
+								<p class="col s6">
+									<label for="ciclismo">
+										<input id="ciclismo" type="checkbox" class="filled-in"/>
+										<span>Ciclismo</span>
+								  	</label>
+								</p>
+							</div>
+							<div class="input-field col s6">
+								<p>* Campos obrigatórios</p>
+							</div>
+						</div>
+						<div class="row">
+							<a class="waves-effect waves-light btn">button</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</main>
 				
 	</body>
 	<script>
 		$(document).ready(function(){
 			$('.sidenav').sidenav();
+			$('select').formSelect();
+			$('.datepicker').datepicker();
 		});
 	</script>
 </html>
