@@ -1,0 +1,16 @@
+/* GLOBAL */
+.green-app{
+    background-color: rgb(169,212,17) !important;
+}
+
+/* NAV */
+nav .logo {
+    margin: 8px 15px;
+}
+nav ul li .material-icons {
+    margin-left: 15px;
+}
+
+nav ul li a{
+    color: #000
+}
