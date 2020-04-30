@@ -14,10 +14,10 @@
 	    <script src="https://unpkg.com/vue"></script>
 	</head>
 	<body>
-		
-		<nav class="green-app black-text">
+		<nav class="green-app white-text">
 			<div class="nav-wrapper">
-				<img class="logo" src="img/logo.png" alt="logo">
+				<img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
+				<span class="title-nav hide-on-large-only">Questionário</span>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 					<li class="valign-wrapper">
@@ -29,11 +29,11 @@
 						<a href="badges.html">Questionário inicial</a>
 					</li>
 					<li class="valign-wrapper">
-						<span class="material-icons">menu_book</span>
+						<span class="material-icons">report_problem</span>
 						<a href="collapsible.html">Notificações</a>
 					</li>
 					<li class="valign-wrapper">
-						<span class="material-icons">menu_book</span>
+						<span class="material-icons">speaker_notes</span>
 						<a href="mobile.html">Relatório</a>
 					</li>
 				</ul>
@@ -41,10 +41,23 @@
 		</nav>
 		
 		<ul class="sidenav" id="mobile-demo">
-			<li><a href="sass.html">Sass</a></li>
-			<li><a href="badges.html">Components</a></li>
-			<li><a href="collapsible.html">Javascript</a></li>
-			<li><a href="mobile.html">Mobile</a></li>
+			<img class="logo" src="img/logo.png" alt="logo">
+			<li class="valign-wrapper">
+				<span class="material-icons">check_box</span>
+				<a href="sass.html">Minha dieta</a>
+			</li>
+			<li class="active valign-wrapper">
+				<span class="material-icons">menu_book</span>
+				<a href="badges.html">Questionário inicial</a>
+			</li>
+			<li class="valign-wrapper">
+				<span class="material-icons">report_problem</span>
+				<a href="collapsible.html">Notificações</a>
+			</li>
+			<li class="valign-wrapper">
+				<span class="material-icons">speaker_notes</span>
+				<a href="mobile.html">Relatório</a>
+			</li>
 		</ul>
 				
 	</body>
