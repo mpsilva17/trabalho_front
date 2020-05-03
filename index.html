@@ -65,111 +65,113 @@
 				<div class="row">
 					<form class="col s12" action="#">
 						<div class="row">
-							<div class="input-field col s6">
-								<select id="motivacao">
+							<div class="input-field col s12 m6">
+								<select id="motivacao" class="validate" required="" aria-required="true">
 									<option value="motivacaoOpt" disabled selected>Motivação</option>
 									<option value="perderPesoOpt">Perder peso</option>
 									<option value="dietaEsportivaOpt">Dieta esportiva</option>
 									<option value="restricaoAlimentarOpt">Restrição alimentar</option>
 								</select>
-								<label for="motivacao">Motivação *</label>
+								<label data-error="Selecione alguma opção" data-success="right" for="motivacao">Motivação *</label>
 							</div>
-							<div class="input-field col s6">
-								<input placeholder="Peso(Kg)" id="peso" type="text" class="validate">
-          						<label for="peso">Peso *</label>
+							<div class="input-field col s12 m6">
+								<input placeholder="Peso(Kg)" id="peso" type="text" required="" class="validate">
+          						<label data-error="Preencha este campo" data-success="right" for="peso">Peso *</label>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s6">
-								<select id="restricao">
+							<div class="input-field col s12 m6">
+								<select id="restricao" class="validate" required="" aria-required="true">
 									<option value="restricaoOpt" disabled selected>Restrição</option>
 									<option value="alergiaLactoseOpt">Alergia lactose</option>
 									<option value="alergiaGlutenOpt">Alergia glúten</option>
 									<option value="restricaoAcucarOpt">Restrição açúcar</option>
 									<option value="restricaoSal">Restrição sal</option>
 								</select>
-								<label for="restricao">Restrição *</label>
+								<label for="restricao" data-error="Selecione alguma opção" data-success="right">Restrição *</label>
 							</div>
-							<div class="input-field col s6">
-								<input placeholder="Altura(cm)" id="altura" type="text" class="validate">
-          						<label for="altura">Altura *</label>
+							<div class="input-field col s12 m6">
+								<input placeholder="Altura(cm)" aria-required="true" required="" id="altura" type="text" class="validate">
+          						<label for="altura" data-error="Preencha este campo" data-success="right">Altura *</label>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s6">
-								<p class="col s6">
+							<div class="input-field col s12 m6">
+								<p class="col s12 m6">
 									<label for="masculino">
-										<input id="masculino" name="sexo" type="radio" checked />
+										<input id="masculino" name="sexo" required="" type="radio" checked/>
 										<span>Masculino</span>
 									</label>
 								</p>
-								<p class="col s6">
+								<p class="col s12 m6">
 									<label for="feminino">
-										<input id="feminino" name="sexo" type="radio" />
+										<input id="feminino" name="sexo" required="" type="radio" />
 										<span>Feminino</span>
 									</label>
 								</p>
 							</div>
-							<div class="input-field col s6">
-								<input placeholder="Perímetro cintura" id="perimetroCintura" type="text">
+							<div class="input-field col s12 m6">
+								<input placeholder="Perímetro cintura" class="validate" id="perimetroCintura" type="text">
           						<label for="perimetroCintura">Perímetro cintura</label>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s6">
-  								<input type="text" class="datepicker validate">
-          						<label for="dataNasc">Data de nascimento</label>
+							<div class="input-field col s12 m6">
+  								<input type="text" class="datepicker validate" aria-required="true" required="">
+          						<label data-error="Preencha este campo" data-success="right" for="dataNasc">Data de nascimento *</label>
 							</div>
-							<div class="input-field col s6">
+							<div class="input-field col s12 m6">
 								<input placeholder="Perímetro quadril" id="perimetroQuadril" type="text">
           						<label for="perimetroQuadril">Perímetro quadril</label>
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s6">
-								<p class="col s6">
+							<div class="input-field col s12 m6">
+								<p class="col s12 m6">
 									<label for="caminhada">
-									  	<input id="caminhada" type="checkbox" class="filled-in" checked="checked"/>
+									  	<input id="caminhada" type="checkbox" class="filled-in"/>
 									  	<span>Caminhada</span>
 									</label>
 								</p>
-								<p class="col s6">
+								<p class="col s12 m6">
 									<label for="natacao">
 									  	<input id="natacao" type="checkbox" class="filled-in"/>
 									  	<span>Natação</span>
 									</label>
 								</p>
-								<p class="col s6">
+								<p class="col s12 m6">
 									<label for="corrida">
 									  	<input id="corrida" type="checkbox" class="filled-in"/>
 									  	<span>Corrida</span>
 									</label>
 								</p>
-								<p class="col s6">
+								<p class="col s12 m6">
 									<label for="futebol">
 									  	<input id="futebol" type="checkbox" class="filled-in"/>
 									  	<span>Futebol</span>
 									</label>
 								</p>
-								<p class="col s6">
+								<p class="col s12 m6">
 									<label for="academia">
 									  	<input id="academia" type="checkbox" class="filled-in"/>
 									  	<span>Academia</span>
 									</label>
 								</p>
-								<p class="col s6">
+								<p class="col s12 m6">
 									<label for="ciclismo">
 										<input id="ciclismo" type="checkbox" class="filled-in"/>
 										<span>Ciclismo</span>
 								  	</label>
 								</p>
 							</div>
-							<div class="input-field col s6">
+							<div class="input-field col s12 m6">
 								<p>* Campos obrigatórios</p>
 							</div>
 						</div>
-						<div class="row">
-							<a class="waves-effect waves-light btn">button</a>
+						<div class="row d-flex">
+							<div class="col m3 m-auto">
+								<button type="submit" class="green-app btn col s12">Finalizar</button>
+							</div>
 						</div>
 					</form>
 				</div>

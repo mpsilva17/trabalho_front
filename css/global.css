@@ -1,6 +1,8 @@
 /* GLOBAL */
+.d-flex{display: flex}
+.m-auto{margin: auto;}
 .green-app{background-color: rgb(169,212,17) !important;}
-[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after { background-color: rgb(169,212,17);border: 2px solid rgb(169,212,17);}
+[type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after, [type="checkbox"].filled-in:checked + span:not(.lever)::after { background-color: rgb(169,212,17);border: 2px solid rgb(169,212,17);}
 
 /* NAV */
 nav .logo {margin: 8px 15px;}
@@ -13,3 +15,6 @@ nav ul li a{color: #fff; font-weight: bold; font-size: 14px;}
 #mobile-demo .logo {margin: 0 0 12px 15px;}
 #mobile-demo li{padding-left: 15px;}
 #mobile-demo li a{padding: 0 15px;}
+
+/* MAIN */
+main{margin-top: 50px}
