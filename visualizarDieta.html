@@ -1,0 +1,115 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Visualizar Dieta</title>
+	    <!--MaterializeCSS-->
+	    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<link rel="stylesheet" href="css/global.css">
+
+	    <!--VueJS-->
+	    <script src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<nav class="green-app-background white-text">
+			<div class="nav-wrapper">
+				<img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
+				<span class="title-nav hide-on-large-only">Visualizar dieta</span>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+					<li class="valign-wrapper">
+						<span class="material-icons">check_box</span>
+						<a href="sass.html">Minha dieta</a>
+					</li>
+					<li class="active valign-wrapper">
+						<span class="material-icons">menu_book</span>
+						<a href="badges.html">Questionário inicial</a>
+					</li>
+					<li class="valign-wrapper">
+						<span class="material-icons">report_problem</span>
+						<a href="collapsible.html">Notificações</a>
+					</li>
+					<li class="valign-wrapper">
+						<span class="material-icons">speaker_notes</span>
+						<a href="mobile.html">Relatório</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="row">
+			<div class="col s12 p-0">
+				<ul class="tabs green-app-background">
+					<li class="tab col s2"><a class="white-text" href="#cafeDaManha">Café da manhã</a></li>
+					<li class="tab col s2"><a class="white-text active" href="#lancheDaManha">Lanche da manhã</a></li>
+					<li class="tab col s2"><a class="white-text" href="#almoco">Almoço</a></li>
+					<li class="tab col s2"><a class="white-text" href="#lancheDaTarde">Lanche da tarde</a></li>
+					<li class="tab col s2"><a class="white-text" href="#jantar">Jantar</a></li>
+					<li class="tab col s2"><a class="white-text" href="#ceia">Ceia</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<ul class="sidenav" id="mobile-demo">
+			<img class="logo" src="img/logo.png" alt="logo">
+			<li class="valign-wrapper">
+				<span class="material-icons">check_box</span>
+				<a href="sass.html">Minha dieta</a>
+			</li>
+			<li class="active valign-wrapper">
+				<span class="material-icons">menu_book</span>
+				<a href="badges.html">Questionário inicial</a>
+			</li>
+			<li class="valign-wrapper">
+				<span class="material-icons">report_problem</span>
+				<a href="collapsible.html">Notificações</a>
+			</li>
+			<li class="valign-wrapper">
+				<span class="material-icons">speaker_notes</span>
+				<a href="mobile.html">Relatório</a>
+			</li>
+		</ul>
+
+		<main>
+			<div class="container">
+				<div class="row">
+					<div class="col s12" id="dadosPlano">
+						<p>Número do plano: 1000</p>
+						<p>Data de criação: 04/05/2020</p>
+					</div>
+				</div>
+				<section id="dietas" class="row">
+					<article id="cafeDaManha" class="col s12">
+						<h1 class="green-app-text">Café da manhã</h1>
+					</article>
+					<article id="lancheDaManha" class="col s12">
+						<h1 class="green-app-text">Lanche da manhã</h1>
+					</article>
+					<article id="almoco" class="col s12">
+						<h1 class="green-app-text">Almoço</h1>
+					</article>
+					<article id="lancheDaTarde" class="col s12">
+						<h1 class="green-app-text">Lanche da tarde</h1>
+					</article>
+					<article id="jantar" class="col s12">
+						<h1 class="green-app-text">Jantar</h1>
+					</article>
+					<article id="ceia" class="col s12">
+						<h1 class="green-app-text">Ceia</h1>
+					</article>
+				</section>
+			</div>
+		</main>
+				
+	</body>
+	<script>
+		$(document).ready(function(){
+			$('.sidenav').sidenav();
+			$('select').formSelect();
+			$('.datepicker').datepicker();
+    		$('.tabs').tabs();
+		});
+	</script>
+</html>

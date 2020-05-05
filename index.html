@@ -14,7 +14,7 @@
 	    <script src="https://unpkg.com/vue"></script>
 	</head>
 	<body>
-		<nav class="green-app white-text">
+		<nav class="green-app-background white-text">
 			<div class="nav-wrapper">
 				<img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
 				<span class="title-nav hide-on-large-only">Questionário</span>
@@ -63,7 +63,7 @@
 		<main>
 			<div class="container">
 				<div class="row">
-					<form class="col s12" action="#">
+					<form id="questionarioInicial" class="col s12" action="#">
 						<div class="row">
 							<div class="input-field col s12 m6">
 								<select id="motivacao" class="validate" required="" aria-required="true">
@@ -170,7 +170,7 @@
 						</div>
 						<div class="row d-flex">
 							<div class="col m3 m-auto">
-								<button type="submit" class="green-app btn col s12">Finalizar</button>
+								<button type="submit" class="green-app-background btn col s12">Finalizar</button>
 							</div>
 						</div>
 					</form>

@@ -1,7 +1,9 @@
 /* GLOBAL */
 .d-flex{display: flex}
 .m-auto{margin: auto;}
-.green-app{background-color: rgb(169,212,17) !important;}
+.p-0{padding: 0 !important;}
+.green-app-background{background-color: rgb(169,212,17) !important;}
+.green-app-text{color: rgb(169,212,17) !important;}
 [type="radio"]:checked + span::after, [type="radio"].with-gap:checked + span::after, [type="checkbox"].filled-in:checked + span:not(.lever)::after { background-color: rgb(169,212,17);border: 2px solid rgb(169,212,17);}
 
 /* NAV */
@@ -17,4 +19,10 @@ nav ul li a{color: #fff; font-weight: bold; font-size: 14px;}
 #mobile-demo li a{padding: 0 15px;}
 
 /* MAIN */
-main{margin-top: 50px}
+#questionarioInicial{margin-top: 50px}
+
+/* DADOS DO PLANO */
+#dadosPlano p{font-size: 24px;}
+
+/* DIETAS */
+#dietas h1{font-size: 30px;margin-top: 0;text-transform: uppercase;text-decoration: underline;}
