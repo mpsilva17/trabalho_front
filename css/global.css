@@ -9,13 +9,18 @@
 /* NAV */
 nav .logo {margin: 8px 15px;}
 nav .title-nav{color: #fff; font-weight: bold; font-size: 17px;}
+nav ul li:hover {background-color: rgba(0,0,0,0.1);}
 nav ul li .material-icons {margin-left: 15px;}
 nav ul li a{color: #fff; font-weight: bold; font-size: 14px;}
+nav .iconsNav{margin: 20px;}
+nav .titleIconsNav{position: absolute; color: #fff; font-weight: bold; font-size: 17px;}
 
 /* SIDEBAR */
 #mobile-demo {padding-top: 15px;}
 #mobile-demo .logo {margin: 0 0 12px 15px;}
 #mobile-demo li{padding-left: 15px;}
+#mobile-demo li:hover{background-color: rgba(0,0,0,0.1);}
+#mobile-demo li > a:hover {background-color: rgba(0,0,0,0);}
 #mobile-demo li a{padding: 0 15px;}
 
 /* MAIN */
