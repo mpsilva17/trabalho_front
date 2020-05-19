@@ -8,178 +8,142 @@
 	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<link rel="stylesheet" href="css/global.css">
+		
 
 	    <!--VueJS-->
-	    <script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="components/nav-component.js"></script>
+
+		<link rel="stylesheet" href="css/global.css">
 	</head>
 	<body>
-		<nav class="green-app-background white-text">
-			<div class="nav-wrapper">
-				<img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
-				<span class="title-nav hide-on-large-only">Questionário</span>
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-				<ul class="right hide-on-med-and-down">
-					<li class="valign-wrapper">
-						<span class="material-icons">check_box</span>
-						<a href="visualizarDieta.html">Minha dieta</a>
-					</li>
-					<li class="active valign-wrapper">
-						<span class="material-icons">menu_book</span>
-						<a href="index.html">Questionário inicial</a>
-					</li>
-					<li class="valign-wrapper">
-						<span class="material-icons">report_problem</span>
-						<a href="notificacoes.html">Notificações</a>
-					</li>
-					<li class="valign-wrapper">
-						<span class="material-icons">speaker_notes</span>
-						<a href="relatorio.html">Relatório</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		
-		<ul class="sidenav" id="mobile-demo">
-			<img class="logo" src="img/logo.png" alt="logo">
-			<li class="valign-wrapper">
-				<span class="material-icons">check_box</span>
-				<a href="visualizarDieta.html">Minha dieta</a>
-			</li>
-			<li class="active valign-wrapper">
-				<span class="material-icons">menu_book</span>
-				<a href="index.html">Questionário inicial</a>
-			</li>
-			<li class="valign-wrapper">
-				<span class="material-icons">report_problem</span>
-				<a href="notificacoes.html">Notificações</a>
-			</li>
-			<li class="valign-wrapper">
-				<span class="material-icons">speaker_notes</span>
-				<a href="relatorio.html">Relatório</a>
-			</li>
-		</ul>
 
-		<main>
-			<div class="container">
-				<div class="row">
-					<form id="questionarioInicial" class="col s12" action="visualizarDieta.html" method="GET"></form>
-						<div class="row">
-							<div class="input-field col s12 m6">
-								<select id="motivacao" class="validate" required="" aria-required="true">
-									<option value="motivacaoOpt" disabled selected>Motivação</option>
-									<option value="perderPesoOpt">Perder peso</option>
-									<option value="dietaEsportivaOpt">Dieta esportiva</option>
-									<option value="restricaoAlimentarOpt">Restrição alimentar</option>
-								</select>
-								<label data-error="Selecione alguma opção" data-success="right" for="motivacao">Motivação *</label>
+		<div id="app">
+
+			<cmp-nav :hassidebar="nav.sidebar" :name="nav.name" :naviconurl="nav.navIconUrl" :activeindex="nav.activeindex" :options="nav.options"></cmp-nav>
+
+			<main>
+				<div class="container">
+					<div class="row">
+						<form id="questionarioInicial" class="col s12" action="visualizarDieta.html" method="GET">
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<select id="motivacao" class="validate" required="" aria-required="true">
+										<option value="motivacaoOpt" disabled selected>Motivação</option>
+										<option value="perderPesoOpt">Perder peso</option>
+										<option value="dietaEsportivaOpt">Dieta esportiva</option>
+										<option value="restricaoAlimentarOpt">Restrição alimentar</option>
+									</select>
+									<label data-error="Selecione alguma opção" data-success="right" for="motivacao">Motivação *</label>
+								</div>
+								<div class="input-field col s12 m6">
+									<input placeholder="Peso(Kg)" id="peso" type="text" required="" class="validate">
+									<label data-error="Preencha este campo" data-success="right" for="peso">Peso *</label>
+								</div>
 							</div>
-							<div class="input-field col s12 m6">
-								<input placeholder="Peso(Kg)" id="peso" type="text" required="" class="validate">
-          						<label data-error="Preencha este campo" data-success="right" for="peso">Peso *</label>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<select id="restricao" class="validate" required="" aria-required="true">
+										<option value="restricaoOpt" disabled selected>Restrição</option>
+										<option value="alergiaLactoseOpt">Alergia lactose</option>
+										<option value="alergiaGlutenOpt">Alergia glúten</option>
+										<option value="restricaoAcucarOpt">Restrição açúcar</option>
+										<option value="restricaoSal">Restrição sal</option>
+									</select>
+									<label for="restricao" data-error="Selecione alguma opção" data-success="right">Restrição *</label>
+								</div>
+								<div class="input-field col s12 m6">
+									<input placeholder="Altura(cm)" aria-required="true" required="" id="altura" type="text" class="validate">
+									<label for="altura" data-error="Preencha este campo" data-success="right">Altura *</label>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m6">
-								<select id="restricao" class="validate" required="" aria-required="true">
-									<option value="restricaoOpt" disabled selected>Restrição</option>
-									<option value="alergiaLactoseOpt">Alergia lactose</option>
-									<option value="alergiaGlutenOpt">Alergia glúten</option>
-									<option value="restricaoAcucarOpt">Restrição açúcar</option>
-									<option value="restricaoSal">Restrição sal</option>
-								</select>
-								<label for="restricao" data-error="Selecione alguma opção" data-success="right">Restrição *</label>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<p class="col s12 m6">
+										<label for="masculino">
+											<input id="masculino" name="sexo" required="" type="radio" checked/>
+											<span>Masculino</span>
+										</label>
+									</p>
+									<p class="col s12 m6">
+										<label for="feminino">
+											<input id="feminino" name="sexo" required="" type="radio" />
+											<span>Feminino</span>
+										</label>
+									</p>
+								</div>
+								<div class="input-field col s12 m6">
+									<input placeholder="Perímetro cintura" class="validate" id="perimetroCintura" type="text">
+									<label for="perimetroCintura">Perímetro cintura</label>
+									<label data-error="Preencha este campo" data-success="right" for="peso">Perímetro cintura *</label>
+								</div>
 							</div>
-							<div class="input-field col s12 m6">
-								<input placeholder="Altura(cm)" aria-required="true" required="" id="altura" type="text" class="validate">
-          						<label for="altura" data-error="Preencha este campo" data-success="right">Altura *</label>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<input type="text" class="datepicker validate" aria-required="true" required="">
+									<label data-error="Preencha este campo" data-success="right" for="dataNasc">Data de nascimento *</label>
+								</div>
+								<div class="input-field col s12 m6">
+									<input placeholder="Perímetro quadril" id="perimetroQuadril" type="text">
+									<label for="perimetroQuadril">Perímetro quadril</label>
+									<label data-error="Preencha este campo" data-success="right" for="peso">Perímetro quadril *</label>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m6">
-								<p class="col s12 m6">
-									<label for="masculino">
-										<input id="masculino" name="sexo" required="" type="radio" checked/>
-										<span>Masculino</span>
-									</label>
-								</p>
-								<p class="col s12 m6">
-									<label for="feminino">
-										<input id="feminino" name="sexo" required="" type="radio" />
-										<span>Feminino</span>
-									</label>
-								</p>
+							<div class="row">
+								<div class="input-field col s12 m6">
+									<p class="col s12 m6">
+										<label for="caminhada">
+											<input id="caminhada" type="checkbox" class="filled-in"/>
+											<span>Caminhada</span>
+										</label>
+									</p>
+									<p class="col s12 m6">
+										<label for="natacao">
+											<input id="natacao" type="checkbox" class="filled-in"/>
+											<span>Natação</span>
+										</label>
+									</p>
+									<p class="col s12 m6">
+										<label for="corrida">
+											<input id="corrida" type="checkbox" class="filled-in"/>
+											<span>Corrida</span>
+										</label>
+									</p>
+									<p class="col s12 m6">
+										<label for="futebol">
+											<input id="futebol" type="checkbox" class="filled-in"/>
+											<span>Futebol</span>
+										</label>
+									</p>
+									<p class="col s12 m6">
+										<label for="academia">
+											<input id="academia" type="checkbox" class="filled-in"/>
+											<span>Academia</span>
+										</label>
+									</p>
+									<p class="col s12 m6">
+										<label for="ciclismo">
+											<input id="ciclismo" type="checkbox" class="filled-in"/>
+											<span>Ciclismo</span>
+										</label>
+									</p>
+								</div>
+								<div class="input-field col s12 m6">
+									<p>* Campos obrigatórios</p>
+								</div>
 							</div>
-							<div class="input-field col s12 m6">
-								<input placeholder="Perímetro cintura" class="validate" id="perimetroCintura" type="text">
-          						<label for="perimetroCintura">Perímetro cintura</label>
+							<div class="row d-flex">
+								<div class="col m3 m-auto">
+									<a href="visualizarDieta.html">
+										<button type="submit" class="green-app-background btn col s12">Finalizar</button>
+									</a>
+								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m6">
-  								<input type="text" class="datepicker validate" aria-required="true" required="">
-          						<label data-error="Preencha este campo" data-success="right" for="dataNasc">Data de nascimento *</label>
-							</div>
-							<div class="input-field col s12 m6">
-								<input placeholder="Perímetro quadril" id="perimetroQuadril" type="text">
-          						<label for="perimetroQuadril">Perímetro quadril</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12 m6">
-								<p class="col s12 m6">
-									<label for="caminhada">
-									  	<input id="caminhada" type="checkbox" class="filled-in"/>
-									  	<span>Caminhada</span>
-									</label>
-								</p>
-								<p class="col s12 m6">
-									<label for="natacao">
-									  	<input id="natacao" type="checkbox" class="filled-in"/>
-									  	<span>Natação</span>
-									</label>
-								</p>
-								<p class="col s12 m6">
-									<label for="corrida">
-									  	<input id="corrida" type="checkbox" class="filled-in"/>
-									  	<span>Corrida</span>
-									</label>
-								</p>
-								<p class="col s12 m6">
-									<label for="futebol">
-									  	<input id="futebol" type="checkbox" class="filled-in"/>
-									  	<span>Futebol</span>
-									</label>
-								</p>
-								<p class="col s12 m6">
-									<label for="academia">
-									  	<input id="academia" type="checkbox" class="filled-in"/>
-									  	<span>Academia</span>
-									</label>
-								</p>
-								<p class="col s12 m6">
-									<label for="ciclismo">
-										<input id="ciclismo" type="checkbox" class="filled-in"/>
-										<span>Ciclismo</span>
-								  	</label>
-								</p>
-							</div>
-							<div class="input-field col s12 m6">
-								<p>* Campos obrigatórios</p>
-							</div>
-						</div>
-						<div class="row d-flex">
-							<div class="col m3 m-auto">
-								<a href="visualizarDieta.html">
-									<button type="submit" class="green-app-background btn col s12">Finalizar</button>
-								</a>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
-			</div>
-		</main>
-				
+			</main>
+		</div>
 	</body>
 	<script>
 		$(document).ready(function(){
@@ -187,5 +151,23 @@
 			$('select').formSelect();
 			$('.datepicker').datepicker();
 		});
+
+		var vm = new Vue({
+		el: "#app",
+			data: {
+				nav: {
+					sidebar: true,
+					name: 'Questionário',
+					navIconUrl: '#',
+					activeindex: 1,
+					options: [
+						{icon: 'check_box', url: 'visualizarDieta.html', optionName: 'Minha dieta'},
+						{icon: 'menu_book', url: 'index.html', optionName: 'Questionário inicial'},
+						{icon: 'report_problem', url: 'notificacoes.html', optionName: 'Notificações'},
+						{icon: 'speaker_notes', url: 'relatorio.html', optionName: 'Relatório'}
+					]
+				}
+			}
+    	});
 	</script>
 </html>

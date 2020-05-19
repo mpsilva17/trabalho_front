@@ -11,242 +11,33 @@
 		<link rel="stylesheet" href="css/global.css">
 
 	    <!--VueJS-->
-	    <script src="https://unpkg.com/vue"></script>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="components/nav-component.js"></script>
+		<script src="components/tab-component.js"></script>
+		<script src="components/dieta-component.js"></script>
 	</head>
 	<body>
-		<nav class="green-app-background white-text">
-			<div class="nav-wrapper">
-				<img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
-				<span class="title-nav hide-on-large-only">Visualizar dieta</span>
-				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-				<ul class="right hide-on-med-and-down">
-					<li class="active valign-wrapper">
-						<span class="material-icons">check_box</span>
-						<a href="visualizarDieta.html">Minha dieta</a>
-					</li>
-					<li class="valign-wrapper">
-						<span class="material-icons">menu_book</span>
-						<a href="index.html">Questionário inicial</a>
-					</li>
-					<li class="valign-wrapper">
-						<span class="material-icons">report_problem</span>
-						<a href="notificacoes.html">Notificações</a>
-					</li>
-					<li class="valign-wrapper">
-						<span class="material-icons">speaker_notes</span>
-						<a href="relatorio.html">Relatório</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<div class="row">
-			<div class="col s12 p-0">
-				<ul class="tabs green-app-background">
-					<li class="tab"><a class="white-text" href="#cafeDaManha">Café da manhã</a></li>
-					<li class="tab"><a class="white-text active" href="#lancheDaManha">Lanche da manhã</a></li>
-					<li class="tab"><a class="white-text" href="#almoco">Almoço</a></li>
-					<li class="tab"><a class="white-text" href="#lancheDaTarde">Lanche da tarde</a></li>
-					<li class="tab"><a class="white-text" href="#jantar">Jantar</a></li>
-					<li class="tab"><a class="white-text" href="#ceia">Ceia</a></li>
-				</ul>
-			</div>
-		</div>
-		
-		<ul class="sidenav" id="mobile-demo">
-			<img class="logo" src="img/logo.png" alt="logo">
-			<li class="valign-wrapper">
-				<span class="active material-icons">check_box</span>
-				<a href="visualizarDieta.html">Minha dieta</a>
-			</li>
-			<li class="valign-wrapper">
-				<span class="material-icons">menu_book</span>
-				<a href="index.html">Questionário inicial</a>
-			</li>
-			<li class="valign-wrapper">
-				<span class="material-icons">report_problem</span>
-				<a href="notificacoes.html">Notificações</a>
-			</li>
-			<li class="valign-wrapper">
-				<span class="material-icons">speaker_notes</span>
-				<a href="relatorio.html">Relatório</a>
-			</li>
-		</ul>
+		<div id="app">
+			<cmp-nav :hassidebar="nav.sidebar" :name="nav.name" :naviconurl="nav.navIconUrl" :activeindex="nav.activeindex" :options="nav.options"></cmp-nav>
 
-		<main>
-			<div class="container">
-				<div class="row">
-					<div class="col s12" id="dadosPlano">
-						<p class="col s12 m8 p-0">Número do plano: 1000</p>
-						<p class="col s12 m4 p-0">Data de criação: 04/05/2020</p>
-					</div>
+			<div class="row">
+				<div class="col s12 p-0">
+					<cmp-tab :activeindex="tab.activeindex" :tabs="tab.tabs"></cmp-tab>
 				</div>
-				<section id="dietas" class="row">
-					<article id="cafeDaManha" class="row">
-						<span class="col s12">Horário: 07:00</span>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-					</article>
-					<article id="lancheDaManha" class="row">
-						<span class="col s12">Horário: 10:00</span>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-					</article>
-					<article id="almoco" class="row">
-						<span class="col s12">Horário: 12:30</span>
-						<a href="pratoFeito.html">
-							<div class="col s12 m6">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</div>
-						</a>
-						<a href="pratoFeito.html">
-							<div class="col s12 m6">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</div>
-						</a>
-					</article>
-					<article id="lancheDaTarde" class="row">
-						<span class="col s12">Horário: 16:00</span>
-						<a href="pratoFeito.html">
-							<div class="col s12 m6">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</div>
-						</a>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-					</article>
-					<article id="jantar" class="row">
-						<span class="col s12">Horário: 19:00</span>
-						<a href="pratoFeito.html">
-							<div class="col s12 m6">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</div>
-						</a>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-					</article>
-					<article id="ceia" class="row">
-						<span class="col s12">Horário: 22:00</span>
-						<a href="pratoFeito.html">
-							<div class="col s12 m6">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</div>
-						</a>
-						<div class="col s12 m6">
-							<a href="pratoFeito.html">
-								<div class="card small">
-									<div class="card-image">
-										<img src="img/lowcarb.png">
-									</div>
-									<div class="card-content">
-										<span class="card-title center-align">Low carb</span>							
-									</div>
-								</div>
-							</a>
-						</div>
-					</article>
-				</section>
 			</div>
-		</main>
-				
+
+			<main>
+				<div class="container">
+					<div class="row">
+						<div class="col s12" id="dadosPlano">
+							<p class="col s12 m8 p-0">Número do plano: {{dadosPlano.numeroPlano}}</p>
+							<p class="col s12 m4 p-0">Data de criação: {{dadosPlano.dataCriacao}}</p>
+						</div>
+					</div>
+					<cmp-dieta :dietas="dieta.dietas"></cmp-dieta>
+				</div>
+			</main>
+		</div>		
 	</body>
 	<script>
 		$(document).ready(function(){
@@ -256,5 +47,67 @@
     		$('.tabs').tabs();
 			$('.modal').modal();
 		});
+
+		var vm = new Vue({
+		el: "#app",
+			data: {
+				nav: {
+					sidebar: true,
+					name: 'Questionário',
+					navIconUrl: '#',
+					activeindex: 1,
+					options: [
+						{icon: 'check_box', url: 'visualizarDieta.html', optionName: 'Minha dieta'},
+						{icon: 'menu_book', url: 'index.html', optionName: 'Questionário inicial'},
+						{icon: 'report_problem', url: 'notificacoes.html', optionName: 'Notificações'},
+						{icon: 'speaker_notes', url: 'relatorio.html', optionName: 'Relatório'}
+					]
+				},
+				tab:{
+					activeindex: 0,
+					tabs: [ 
+						{href: '#cafeDaManha', name: 'Café da manhã'},
+						{href: '#lancheDaManha', name: 'Lanche da manhã'},
+						{href: '#almoco', name: 'Almoço'},
+						{href: '#lancheDaTarde', name: 'Lanche da tarde'},
+						{href: '#jantar', name: 'Jantar'},
+						{href: '#ceia', name: 'Ceia'} 
+					]
+				},
+				dadosPlano:{
+					numeroPlano: 1000,
+					dataCriacao: '19/05/2020'
+				},
+				dieta:{
+					dietas:[
+						{id: 'cafeDaManha', horario: '07:00', opcoesdieta: [
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'},
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'}
+						]},
+						{id: 'lancheDaManha', horario: '10:00', opcoesdieta: [
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'},
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'}
+						]},
+						{id: 'almoco', horario: '12:30', opcoesdieta: [
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'},
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'}
+						]},
+						{id: 'lancheDaTarde', horario: '16:00', opcoesdieta: [
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'},
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'}
+						]},
+						{id: 'jantar', horario: '19:00', opcoesdieta: [
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'},
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'}
+						]},
+						{id: 'ceia', horario: '22:00', opcoesdieta: [
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'},
+							{url: 'pratoFeito.html', imgsrc: 'img/lowcarb.png', imgalt:'Dieta', nome: 'Low Carb'}
+						]}
+					]
+				}
+
+			}
+    	});
 	</script>
 </html>
