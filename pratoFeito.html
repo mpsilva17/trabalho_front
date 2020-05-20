@@ -15,61 +15,54 @@
 
     <!--VueJS-->
     <script src="https://unpkg.com/vue"></script>
+    <script src="components/nav-component.js"></script>
+    <script src="components/outrasOpcoes-component.js"></script>
 </head>
 <body>
-    <nav class="green-app-background white-text">
-        <div class="nav-wrapper">
-            <div class="row">
-                <a href="visualizarDieta.html">
-                    <span class="material-icons iconsNav">keyboard_backspace</span>
-                </a>
-                <span class="titleIconsNav">Prato Feito</span>
-            </div>
-        </div>
-    </nav>
+    <div id="app">
+        <cmp-nav :hassidebar="nav.sidebar" :name="nav.name" :naviconurl="nav.navIconUrl" :activeindex="nav.activeindex" :options="nav.options"></cmp-nav>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <h1>Comida forte e saudável</h1>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h1>Comida forte e saudável</h1>
+                    </div>
                 </div>
-            </div>
 
-            <section class="row">
-                <article id="cafeDaManha" class="row">
-                    <ul style="border: none !important;" class="collection col s12">
-                        <a href="pratoFeitoInfo.html">
-                            <li class="collection-item avatar valign-wrapper">
-                                <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                                <div class="col s10">
-                                    <span class="title" data-title="titulo">Arroz Branco</span>
-                                    <p data-title="descricao" class="descricao">2 colheres grandes</p>
-                                </div>
-                            </li>
-                        </a>
-                        <a href="pratoFeitoInfo.html">
-                            <li class="collection-item avatar valign-wrapper">
-                                <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                                <div class="col s10">
-                                    <span class="title" data-title="titulo">Tutu de Feijão</span>
-                                    <p data-title="descricao" class="descricao">1 colhere grande</p>
-                                </div>
-                            </li>
-                        </a>
-                        <a href="pratoFeitoInfo.html">
-                            <li class="collection-item avatar valign-wrapper">
-                                <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                                <div class="col s10">
-                                    <span class="title" data-title="titulo">Couve Crua</span>
-                                    <p data-title="descricao" class="descricao">Á vontade</p>
-                                </div>
-                            </li>
-                        </a>
-                    </ul>
-                </article>
-            </section>
-        </div>
-    </main>
+                <section class="row">
+                    <article class="row">
+                        <cmp-outrasopcoes :outrasopcoes="outrasopcoes.options"></cmp-outrasopcoes>
+                    </article>
+                </section>
+            </div>
+        </main>
+    </div>
 </body>
+<script>
+    var vm = new Vue({
+		el: "#app",
+			data: {
+				nav: {
+					sidebar: false,
+					name: 'Prato Feito',
+					navIconUrl: 'visualizarDieta.html',
+					activeindex: 1,
+					options: [
+						{icon: 'check_box', url: 'visualizarDieta.html', optionName: 'Minha dieta'},
+						{icon: 'menu_book', url: 'index.html', optionName: 'Questionário inicial'},
+						{icon: 'report_problem', url: 'notificacoes.html', optionName: 'Notificações'},
+						{icon: 'speaker_notes', url: 'relatorio.html', optionName: 'Relatório'}
+					]
+                },
+                outrasopcoes: {
+                    options: [
+                        {url: 'pratoFeitoInfo.html', imgsrc: 'img/iogurte.png', imgdatatitle: "imagem", imgalt: "logo", optionname: "Arroz branco", optiondesc: "2 colheres grandes"},
+                        {url: 'pratoFeitoInfo.html', imgsrc: 'img/iogurte.png', imgdatatitle: "imagem", imgalt: "logo", optionname: "Arroz branco", optiondesc: "2 colheres grandes"},
+                        {url: 'pratoFeitoInfo.html', imgsrc: 'img/iogurte.png', imgdatatitle: "imagem", imgalt: "logo", optionname: "Arroz branco", optiondesc: "2 colheres grandes"}
+                    ]
+                }
+			}
+    	});
+</script>
 </html>
