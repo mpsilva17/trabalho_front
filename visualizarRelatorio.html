@@ -13,110 +13,93 @@
 
     <!--VueJS-->
     <script src="https://unpkg.com/vue"></script>
+    <script src="components/nav-component.js"></script>
 </head>
 <body>
-    <nav class="green-app-background white-text">
-        <div class="nav-wrapper">
-            <img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
-            <span class="title-nav hide-on-large-only">Visualizar Relatório</span>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li class="active valign-wrapper">
-                    <span class="material-icons">check_box</span>
-                    <a href="visualizarDieta.html">Minha dieta</a>
-                </li>
-                <li class="valign-wrapper">
-                    <span class="material-icons">menu_book</span>
-                    <a href="index.html">Questionário inicial</a>
-                </li>
-                <li class="valign-wrapper">
-                    <span class="material-icons">report_problem</span>
-                    <a href="notificacoes.html">Notificações</a>
-                </li>
-                <li class="valign-wrapper">
-                    <span class="material-icons">speaker_notes</span>
-                    <a href="relatorio.html">Relatório</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <img class="logo" src="img/logo.png" alt="logo">
-        <li class="valign-wrapper">
-            <span class="active material-icons">check_box</span>
-            <a href="visualizarDieta.html">Minha dieta</a>
-        </li>
-        <li class="valign-wrapper">
-            <span class="material-icons">menu_book</span>
-            <a href="index.html">Questionário inicial</a>
-        </li>
-        <li class="valign-wrapper">
-            <span class="material-icons">report_problem</span>
-            <a href="notificacoes.html">Notificações</a>
-        </li>
-        <li class="valign-wrapper">
-            <span class="material-icons">speaker_notes</span>
-            <a href="relatorio.html">Relatório</a>
-        </li>
-    </ul>
+    <div id="app">
+        <cmp-nav :hassidebar="nav.sidebar" :name="nav.name" :naviconurl="nav.navIconUrl" :activeindex="nav.activeindex" :options="nav.options"></cmp-nav>
 
-    <main>
-        <div class="container">
-            <div class="row">
-                <div>
-                    <h2>Frequência</h2>
-                    <p>Dos 10 dias de que você está fazendo a dieta vocÊ teve 51% de freqêuncia</p>
-                </div>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <h2>Frequência</h2>
+                        <p>Dos {{frequencia.tempo}} dias de que você está fazendo a dieta vocÊ teve {{frequencia.media}} de freqêuncia</p>
+                    </div>
 
-                <section>
-                    <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
-                </section>
+                    <section>
+                        <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
+                    </section>
 
-                <div>
-                    <h2>Cuidado</h2>
-                    <p>Veja o que você precisa melhorar</p>
+                    <div>
+                        <h2>Cuidado</h2>
+                        <p>Veja o que você precisa melhorar</p>
 
-                    <ol>
-                        <li>Beber mais água</li>
-                        <li>Ter mais atenção ao lanche da manhã</li>
-                    </ol>
+                        <ol>
+                            <li v-for="cuidado in cuidados">{{cuidado}}</li>
+                        </ol>
+                    </div>
+                    <section>
+                        <h2>Calorias</h2>
+                        <p>Você está consumindo em média {{calorias}} kcal por dia</p>
+                        <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
+                    </section>
+
+                    <section>
+                        <h2>Água</h2>
+                        <p>Você está consumindo em média {{agua}} litros de água por dia</p>
+                        <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
+                    </section>
+
+                    <section>
+                        <h2>Calorias gastas</h2>
+                        <p>Você está consumindo em média {{caloriasGastas}} kcal por dia</p>
+                        <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
+                    </section>
+
+                    <section>
+                        <h2>{{notaFinal}</h2>
+                    </section>
                 </div>
             </div>
-
-            <div class="row">
-                <section>
-                    <h2>Calorias</h2>
-                    <p>Você está consumindo em média 1.711 kcal por dia</p>
-                    <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
-                </section>
-
-                <section>
-                    <h2>Água</h2>
-                    <p>Você está consumindo em média 1.4 litros de água por dia</p>
-                    <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
-                </section>
-
-                <section>
-                    <h2>Calorias gastas</h2>
-                    <p>Você está consumindo em média 2300 kcal por dia</p>
-                    <img src="img/grafico.PNG" data-title="imagem" alt="grafico">
-                </section>
-
-                <section>
-                    <h2>Nota final 7, você está indo bem.</h2>
-                </section>
-            </div>
-        </div>
-    </main>
-    <script>
-		$(document).ready(function(){
-			$('.sidenav').sidenav();
-			$('select').formSelect();
-			$('.datepicker').datepicker();
-    		$('.tabs').tabs();
-			$('.modal').modal();
-		});
-	</script>
+        </main>
+    </div>
 </body>
+<script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+        $('select').formSelect();
+        $('.datepicker').datepicker();
+        $('.tabs').tabs();
+        $('.modal').modal();
+    });
+    
+    var vm = new Vue({
+    el: "#app",
+        data: {
+            nav: {
+                sidebar: true,
+                name: 'Relatório',
+                navIconUrl: '#',
+                activeindex: 3,
+                options: [
+                    {icon: 'check_box', url: 'visualizarDieta.html', optionName: 'Minha dieta'},
+                    {icon: 'menu_book', url: 'index.html', optionName: 'Questionário inicial'},
+                    {icon: 'report_problem', url: 'notificacoes.html', optionName: 'Notificações'},
+                    {icon: 'speaker_notes', url: 'relatorio.html', optionName: 'Relatório'}
+                ]
+            },
+            frequencia:{
+                tempo: 10,
+                media: 51,
+            },
+            cuidados:['Beber mais água', 'Ter mais atenção ao lanche da manhã'],
+            calorias: 1.711,
+            agua: 1.4,
+            caloriasGastas: 2300,
+            notaFinal: 'Nota final 7, você está indo bem.'
+        }
+    });
+</script>
 </html>

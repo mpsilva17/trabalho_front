@@ -13,89 +13,55 @@
 
         <!--VueJS-->
         <script src="https://unpkg.com/vue"></script>
+        <script src="components/nav-component.js"></script>
+        <script src="components/outrasOpcoes-component.js"></script>
+        <script src="components/tab-component.js"></script>
     </head>
     <body>
-        <nav class="green-app-background white-text">
-            <div class="nav-wrapper">
-                <div class="row">
-                    <a href="pratoFeito.html">
-                        <span class="material-icons iconsNav">keyboard_backspace</span>
-                    </a>
-                    <span class="titleIconsNav">Arroz Branco</span>
+        <div id="app">
+            <cmp-nav :hassidebar="nav.sidebar" :name="nav.name" :naviconurl="nav.navIconUrl" :activeindex="nav.activeindex" :options="nav.options"></cmp-nav>
+
+            <div class="row">
+                <div class="col s12 p-0">
+                    <cmp-tab :activeindex="tab.activeindex" :tabs="tab.tabs"></cmp-tab>
                 </div>
             </div>
-        </nav>
 
-        <div class="row">
-            <div class="col s12 p-0">
-                <ul class="tabs green-app-background">
-                    <li class="tab"><a class="white-text active" href="#propriedades">Propriedades</a></li>
-                    <li class="tab"><a class="white-text" href="#outrasOpcoes">Outras opções</a></li>
-                </ul>
-            </div>
+            <main>
+                <div class="container">
+                    <section>
+                        <article id="propriedades" class="row">
+                            <section class="row">
+                                <article class="row">
+                                    <img :src="propriedades.imgsrc" class="col s12" :alt="propriedades.imgalt">
+                                </article>
+                            </section>
+
+                            <div>
+                                <h2>O que é?</h2>
+                                <p>{{propriedades.descricao}}</p>
+                            </div>
+
+                            <h2>Propriedades</h2>
+                            <p>{{propriedades.quantidade}}</p>
+
+                            <ul style="border: none !important;" class="collection col s12">
+                                <li v-for="item in propriedades.lista" class="collection-item avatar valign-wrapper">
+                                    <div class="row col s10">
+                                        <div class="descricao col s6" data-title="titulo">{{item.nome}}</div>
+                                        <div class="descricao col s6">{{item.descricao}}</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article id="outrasOpcoes" class="row">
+                            <cmp-outrasopcoes :outrasopcoes="outrasopcoes.options"></cmp-outrasopcoes>
+                        </article>
+                    </section>
+                </div>
+            </main>
         </div>
-
-        <main>
-            <div class="container">
-                <section>
-                    <article id="propriedades" class="row">
-                        <section class="row">
-                            <article class="row">
-                                <img src="img/arroz.PNG" class="col s12" alt="arroz">
-                            </article>
-                        </section>
-
-                        <div>
-                            <h2>O que é?</h2>
-                            <p>O arroz branco é aquele que teve a sua casca farelo geme removido. Isto altera o sabor, textura,
-                                aparência e também as suas propriedades nutricionais</p>
-                        </div>
-
-                        <h2>Propriedades</h2>
-                        <p>Cada 100g de arroz polido</p>
-
-                        <ul style="border: none !important;" class="collection col s12">
-                            <li class="collection-item avatar valign-wrapper">
-                                <div class="row col s10">
-                                    <div class="descricao col s6" data-title="titulo">Carboidratos</div>
-                                    <div class="descricao col s6">90,1 / 0,90</div>
-                                </div>
-                            </li>
-                            <li class="collection-item avatar valign-wrapper">
-                                <div class="row col s10">
-                                    <div class="descricao col s6" data-title="titulo">Proteinas</div>
-                                    <div class="descricao col s6">7,3 / 0,20</div>
-                                </div>
-                            </li>
-                        </ul>
-                    </article>
-
-                    <article id="outrasOpcoes" class="row">
-                        <ul style="border: none !important;" class="collection col s12">
-                            <a href="pratoFeito.html">
-                                <li class="collection-item avatar valign-wrapper">
-                                    <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                                    <div class="col s10">
-                                        <span class="title" data-title="titulo">Macarrão ao sugo</span>
-                                        <p data-title="descricao" class="descricao">60g de massa</p>
-                                    </div>
-                                </li>
-                            </a>
-
-                            <a href="pratoFeito.html">
-                                <li class="collection-item avatar valign-wrapper">
-                                    <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                                    <div class="col s10">
-                                        <span class="title" data-title="titulo">Quinoa</span>
-                                        <p data-title="descricao" class="descricao">2 colheres grandes</p>
-                                    </div>
-                                </li>
-                            </a>
-                        </ul>
-                    </article>
-                </section>
-            </div>
-        </main>
     </body>
     <script>
         $(document).ready(function(){
@@ -105,5 +71,47 @@
             $('.tabs').tabs();
             $('.modal').modal();
         });
+
+        var vm = new Vue({
+		el: "#app",
+			data: {
+				nav: {
+					sidebar: false,
+					name: 'Arroz Branco',
+					navIconUrl: 'pratoFeito.html',
+					activeindex: 1,
+					options: [
+						{icon: 'check_box', url: 'visualizarDieta.html', optionName: 'Minha dieta'},
+						{icon: 'menu_book', url: 'index.html', optionName: 'Questionário inicial'},
+						{icon: 'report_problem', url: 'notificacoes.html', optionName: 'Notificações'},
+						{icon: 'speaker_notes', url: 'relatorio.html', optionName: 'Relatório'}
+					]
+                },
+                outrasopcoes: {
+                    options: [
+                        {url: 'pratoFeitoInfo.html', imgsrc: 'img/iogurte.png', imgdatatitle: "imagem", imgalt: "logo", optionname: "Arroz branco", optiondesc: "2 colheres grandes"},
+                        {url: 'pratoFeitoInfo.html', imgsrc: 'img/iogurte.png', imgdatatitle: "imagem", imgalt: "logo", optionname: "Arroz branco", optiondesc: "2 colheres grandes"},
+                        {url: 'pratoFeitoInfo.html', imgsrc: 'img/iogurte.png', imgdatatitle: "imagem", imgalt: "logo", optionname: "Arroz branco", optiondesc: "2 colheres grandes"}
+                    ]
+                },
+                tab:{
+					activeindex: 0,
+					tabs: [ 
+						{href: '#propriedades', name: 'Propriedades'},
+						{href: '#outrasOpcoes', name: 'Outras opções'},
+					]
+                },
+                propriedades:{
+                    imgsrc:'img/arroz.PNG', 
+                    imgalt:'Arroz',
+                    descricao: 'O arroz branco é aquele que teve a sua casca farelo geme removido. Isto altera o sabor, textura, aparência e também as suas propriedades nutricionais',
+                    quantidade: 'Cada 100g de arroz polido',
+                    lista: [
+                        {nome: 'Carboidratos', descricao: '90,1 / 0,90'},
+                        {nome: 'Proteínas', descricao: '7,3 / 0,20'} 
+                    ]
+                }
+			}
+    	});
     </script>
 </html>

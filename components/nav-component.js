@@ -6,7 +6,7 @@ Vue.component('cmp-nav', {
             <div class="nav-wrapper">
                 <img class="logo hide-on-med-and-down" src="img/logo.png" alt="logo">
                 <a v-if="hassidebar" href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <a v-else="" v-bind:href="naviconurl" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">keyboard_backspace</i></a>
+                <a v-else="" v-bind:href="naviconurl" class="sidenav-trigger"><i class="material-icons">keyboard_backspace</i></a>
                 <span class="title-nav hide-on-large-only">{{name}}</span>
                 <ul class="right hide-on-med-and-down">
                     <li v-for="(option, index) in options" :class="activeindex === index ? 'active' : ''" class="valign-wrapper">

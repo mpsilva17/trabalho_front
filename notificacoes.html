@@ -13,50 +13,50 @@
 
         <!--VueJS-->
         <script src="https://unpkg.com/vue"></script>
+        <script src="components/nav-component.js"></script>
     </head>
     <body>
-        <nav class="green-app-background white-text">
-            <div class="nav-wrapper">
+        <div id="app">
+            <cmp-nav :hassidebar="nav.sidebar" :name="nav.name" :naviconurl="nav.navIconUrl" :activeindex="nav.activeindex" :options="nav.options"></cmp-nav>
+            <main>
                 <div class="row">
-                    <a href="visualizarDieta.html">
-                        <span class="material-icons iconsNav">keyboard_backspace</span>
-                    </a>
-                    <span class="titleIconsNav">Notificações</span>
+                    <ul style="border: none !important;" class="collection col s12">
+                        <li class="collection-item avatar valign-wrapper" v-for="item in notificacoes">
+                            <img :src="item.imgsrc" data-title="imagem" :alt="item.imgalt" class="circle">
+                            <div class="col s12">
+                                <span class="title" data-title="titulo">{{item.titulo}}</span>
+                                <p data-title="descricao" class="descricao">{{item.descricao}}</p>
+                                <p data-title="horario" class="horario">{{item.horario}}</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </nav>
-        <main>
-            <div class="row">
-                <ul style="border: none !important;" class="collection col s12">
-                    <li class="collection-item avatar valign-wrapper">
-                        <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                        <div class="col s12">
-                            <span class="title" data-title="titulo">Está na hora do almoço!</span>
-                            <p data-title="descricao" class="descricao">Hoje temos uma sugestão de prato feito que é u...</p>
-                            <p data-title="descricao" class="descricao">03/04/20 às 12:30</p>
-                        </div>
-                    </li>
-
-                    <li class="collection-item avatar valign-wrapper">
-                        <img src="img/paoIntegral.png" data-title="imagem" alt="logo" class="circle">
-                        <div class="col s12">
-                            <span class="title" data-title="titulo">Hum... está na hora do lanche da manhã!</span>
-                            <p data-title="descricao" class="descricao">Castr</p>
-                            <p data-title="descricao" class="descricao">03/04/20 às 10:00</p>
-                        </div>
-                    </li>
-
-                    <li class="collection-item avatar valign-wrapper">
-                        <img src="img/iogurte.png" data-title="imagem" alt="logo" class="circle">
-                        <div class="col s12">
-                            <span class="title" data-title="titulo">Bom dia, que tal um café?!</span>
-                            <p data-title="descricao" class="descricao">Torradas com geléia e uma boa xícara de café</p>
-                            <p data-title="descricao" class="descricao">03/04/20 às 07:00</p>
-                        </div>
-                    </li>
-                </ul>
-                </article>
-            </div>
-        </main>
+            </main>
+        </div>
     </body>
+    <script>
+        var vm = new Vue({
+		el: "#app",
+			data: {
+				nav: {
+					sidebar: false,
+					name: 'Notificações',
+					navIconUrl: 'visualizarDieta.html',
+					activeindex: 1,
+					options: [
+						{icon: 'check_box', url: 'visualizarDieta.html', optionName: 'Minha dieta'},
+						{icon: 'menu_book', url: 'index.html', optionName: 'Questionário inicial'},
+						{icon: 'report_problem', url: 'notificacoes.html', optionName: 'Notificações'},
+						{icon: 'speaker_notes', url: 'relatorio.html', optionName: 'Relatório'}
+					]
+                },
+                notificacoes: [
+                    {imgsrc:'img/iogurte.png', imgalt:'Iogurte', titulo: 'Está na hora do almoço!', descricao: 'Hoje temos uma sugestão de prato feito que é u...', horario: '03/04/20 às 12:30'},
+                    {imgsrc:'img/paoIntegral.png', imgalt:'Pão integral', titulo: 'Hum... está na hora do lanche da manhã!', descricao: 'Castr', horario: '03/04/20 às 10:00'},
+                    {imgsrc:'img/iogurte.png', imgalt:'Iogurte', titulo: 'Bom dia, que tal um café?!', descricao: 'Torradas com geléia e uma boa xícara de café', horario: '03/04/20 às 07:00'}
+                ]
+			}
+    	});
+    </script>
+    </script>
 </html>
